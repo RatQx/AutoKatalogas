@@ -6,13 +6,13 @@ namespace AutoKatalogas.Models
     {
         public int Id { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Part name length can't be longer then 32 characters.")]
         public string? Name { get; set; }
 
-        [StringLength(32)]
+        [StringLength(18, ErrorMessage = "Material length can't be longer then 32 characters.")]
         public string? Material { get; set; }
 
-        [StringLength(64)]
+        [StringLength(64, ErrorMessage = "Placement length can't be longer then 64 characters.")]
         public string? Placement { get; set; }
 
         public int? AutomobilioId { get; set; }
@@ -21,13 +21,13 @@ namespace AutoKatalogas.Models
     {
         public int Id { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Part name length can't be longer then 32 characters.")]
         public string? Name { get; set; }
 
-        [StringLength(32)]
+        [StringLength(18, ErrorMessage = "Material length can't be longer then 32 characters.")]
         public string? Material { get; set; }
 
-        [StringLength(64)]
+        [StringLength(64, ErrorMessage = "Placement length can't be longer then 64 characters.")]
         public string? Placement { get; set; }
 
         public int? AutomobilioId { get; set; }

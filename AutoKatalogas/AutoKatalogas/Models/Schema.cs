@@ -1,4 +1,5 @@
-﻿namespace AutoKatalogas.Models
+﻿using System;
+namespace AutoKatalogas.Models
 {
     public class Schema
     {

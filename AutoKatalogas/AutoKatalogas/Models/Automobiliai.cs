@@ -6,16 +6,17 @@ namespace AutoKatalogas.Models
     {
         public int id { get; set; }
 
-        [StringLength(18)]
+        [StringLength(18, ErrorMessage = "Vin length can't be longer then 18 characters.")]
         public string? Vin { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Model length can't be longer then 32 characters.")]
         public string? Model { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Marke length can't be longer then 32 characters.")]
         public string? Marke { get; set; }
-
-        public DateTime? Prodiction_date { get; set; } // add checks for date and normal format.
+        [DataType(DataType.Date)]
+        [Display(Name = "Production Date")]
+        public DateTime? Production_date { get; set; }
 
 
     }

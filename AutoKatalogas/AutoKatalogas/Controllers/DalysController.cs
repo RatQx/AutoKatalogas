@@ -62,7 +62,7 @@ namespace AutoKatalogas.Controllers
             var pav = await _context.Parts.FindAsync(id);
             if (pav == null)
             {
-                throw new ArgumentNullException(nameof(dalys));
+                throw new ArgumentNullException(nameof(pav));
             }
             if (!string.IsNullOrEmpty(dalys.Material))
             {

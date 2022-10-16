@@ -61,7 +61,7 @@ namespace AutoKatalogas.Controllers
             var pav = await _context.Descriptions.FindAsync(id);
             if (pav == null)
             {
-                throw new ArgumentNullException(nameof(aprasymas));
+                throw new ArgumentNullException(nameof(pav));
             }
             if (!string.IsNullOrEmpty(aprasymas.Name))
             {
@@ -84,7 +84,7 @@ namespace AutoKatalogas.Controllers
                 pav.DalisId = aprasymas.DalisId;
             }
             var part_check = await _context.Parts.FindAsync(aprasymas.DalisId);
-            if (part_check != null)
+            if (part_check != null || aprasymas.DalisId !=null) 
             {
                 try
                 {

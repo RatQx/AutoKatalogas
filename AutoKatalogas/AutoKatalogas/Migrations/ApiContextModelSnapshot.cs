@@ -66,7 +66,7 @@ namespace AutoKatalogas.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
 
-                    b.Property<DateTime?>("Prodiction_date")
+                    b.Property<DateTime?>("Production_date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Vin")
@@ -90,8 +90,8 @@ namespace AutoKatalogas.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Material")
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasMaxLength(18)
+                        .HasColumnType("nvarchar(18)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(32)

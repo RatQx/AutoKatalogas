@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AutoKatalogas.Migrations
 {
-    public partial class migration_good : Migration
+    public partial class migracija : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,7 @@ namespace AutoKatalogas.Migrations
                     Vin = table.Column<string>(type: "nvarchar(18)", maxLength: 18, nullable: true),
                     Model = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
                     Marke = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    Prodiction_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Production_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace AutoKatalogas.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    Material = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    Material = table.Column<string>(type: "nvarchar(18)", maxLength: 18, nullable: true),
                     Placement = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     AutomobilioId = table.Column<int>(type: "int", nullable: true)
                 },

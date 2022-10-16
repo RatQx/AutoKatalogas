@@ -6,13 +6,13 @@ namespace AutoKatalogas.Models
     {
         public int Id { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Description name length can't be longer then 32 characters.")]
         public string? Name { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Description type length can't be longer then 32 characters.")]
         public string? Type { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(1000, ErrorMessage = "Description length can't be longer then 1000 characters.")]
         public string? Description { get; set; }
 
         public int? DalisId { get; set; }
@@ -23,13 +23,13 @@ namespace AutoKatalogas.Models
     {
         public int Id { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Description name length can't be longer then 32 characters.")]
         public string? Name { get; set; }
 
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "Description type length can't be longer then 32 characters.")]
         public string? Type { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(1000, ErrorMessage = "Description length can't be longer then 1000 characters.")]
         public string? Description { get; set; }
 
         public int? DalisId { get; set; }

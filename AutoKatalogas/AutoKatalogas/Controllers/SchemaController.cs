@@ -61,7 +61,7 @@ namespace AutoKatalogas.Controllers
             var pav = await _context.Scheme.FindAsync(id);
             if (pav == null)
             {
-                throw new ArgumentNullException(nameof(schema));
+                throw new ArgumentNullException(nameof(pav));
             }
             if (!string.IsNullOrEmpty(schema.Img))
             {

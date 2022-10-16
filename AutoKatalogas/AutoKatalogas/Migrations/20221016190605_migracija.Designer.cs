@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoKatalogas.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20221015125928_migration_good")]
-    partial class migration_good
+    [Migration("20221016190605_migracija")]
+    partial class migracija
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,7 +68,7 @@ namespace AutoKatalogas.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
 
-                    b.Property<DateTime?>("Prodiction_date")
+                    b.Property<DateTime?>("Production_date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Vin")
@@ -92,8 +92,8 @@ namespace AutoKatalogas.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Material")
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasMaxLength(18)
+                        .HasColumnType("nvarchar(18)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(32)
