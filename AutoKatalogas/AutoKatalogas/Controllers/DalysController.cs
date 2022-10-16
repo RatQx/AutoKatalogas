@@ -2,6 +2,7 @@
 using AutoKatalogas.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AutoKatalogas.Controllers
 {
@@ -156,5 +157,6 @@ namespace AutoKatalogas.Controllers
         {
             return _context.Parts.Any(e => e.Id == id);
         }
+        
     }
 }

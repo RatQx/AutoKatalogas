@@ -145,9 +145,15 @@ namespace AutoKatalogas.Controllers
             {
                 throw new ArgumentNullException(nameof(aprasymas));
             }
-
-            _context.Descriptions.Remove(aprasymas);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Descriptions.Remove(aprasymas);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentNullException(ex.ToString());
+            }
 
             return NoContent();
         }

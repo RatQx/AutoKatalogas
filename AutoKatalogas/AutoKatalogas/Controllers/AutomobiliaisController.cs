@@ -132,8 +132,15 @@ namespace AutoKatalogas.Controllers
             {
                 throw new ArgumentNullException(nameof(automobiliai));
             }
-            _context.Autos.Remove(automobiliai);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Autos.Remove(automobiliai);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentNullException(ex.ToString());
+            }
 
             return NoContent();
         }
@@ -142,5 +149,28 @@ namespace AutoKatalogas.Controllers
         {
             return _context.Autos.Any(e => e.id == id);
         }
+
+        // GET: api/Automobiliai/{id}/Dalys
+        [HttpGet("{id}/Dalys")]
+        public async Task<ActionResult<IEnumerable<Dalys>>> GetDalysByAutoId(int id)
+        {
+            try
+            {
+                var parts = _context.Parts
+                       .Where(x => x.AutomobilioId == id)
+                       .ToList();
+                if (parts == null)
+                {
+                    throw new ArgumentNullException(nameof(parts));
+                }
+                return parts;
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentNullException(ex.ToString());
+            }
+        }
     }
+   
 }
