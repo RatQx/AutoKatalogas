@@ -16,6 +16,8 @@ namespace AutoKatalogas.Models
         public string? Placement { get; set; }
 
         public int? AutomobilioId { get; set; }
+
+        //public Automobiliai? automobiliai { get; }
     }
     public class DalysCreateReq
     {

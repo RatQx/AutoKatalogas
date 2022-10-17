@@ -1,8 +1,9 @@
 ﻿using AutoKatalogas.Data;
 using AutoKatalogas.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
-
+using System.Linq;
 
 namespace AutoKatalogas.Controllers
 {
@@ -31,7 +32,7 @@ namespace AutoKatalogas.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound();
+                return NoContent();
             }
         }
 
@@ -67,7 +68,7 @@ namespace AutoKatalogas.Controllers
         {
             if (id != automobiliai.id)
             {
-                throw new ArgumentNullException(nameof(id));
+                NoContent();
             }
             var pav = await _context.Autos.FindAsync(id);
             if (pav == null)
@@ -195,6 +196,37 @@ namespace AutoKatalogas.Controllers
                     return NoContent();
                 }
                 return parts;
+
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
+
+        // GET: api/Automobiliai/{id}/Dalys
+        [HttpGet("{autoId}/Dalys/{partId}/Aprasymas")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IEnumerable<Aprasymas>>> GetDescByAutoId(int autoId, int partId)
+        {
+            try
+            {
+                var parts = _context.Parts
+                    .Where(x => x.AutomobilioId == autoId)
+                    .Select(x => x.Id)
+                    .ToList();
+
+                var desc = _context.Descriptions
+                    .Where(x => x.DalisId == (partId) && parts.Contains(partId))
+                    .ToList();
+
+                if (desc == null || desc.Count() == 0)
+                {
+                    return NoContent();
+                }
+                return desc;
 
             }
             catch (Exception ex)

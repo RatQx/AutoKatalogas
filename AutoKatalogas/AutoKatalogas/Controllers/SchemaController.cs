@@ -18,20 +18,27 @@ namespace AutoKatalogas.Controllers
 
         // GET: api/Schema
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Schema>>> GetScheme()
         {
             try
             {
-                return await _context.Scheme.ToListAsync();
+                var list = await _context.Scheme.ToListAsync();
+                Ok(list);
+                return list;
             }
             catch (Exception ex)
             {
-                throw new ArgumentNullException(ex.ToString());
+                return NoContent();
             }
         }
 
         // GET: api/Schema/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Schema>> GetSchema(int id)
         {
             try
@@ -39,29 +46,32 @@ namespace AutoKatalogas.Controllers
                 var schema = await _context.Scheme.FindAsync(id);
                 if (schema == null)
                 {
-                    throw new ArgumentNullException(nameof(schema));
+                    return NoContent();
                 }
+                Ok(schema);
                 return schema;
             }
             catch (Exception ex)
             {
-                throw new ArgumentNullException(ex.ToString());
+                return NotFound();
             }
         }
 
         // PUT: api/Schema/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PutSchema(int id, Schema schema)
         {
             if (id != schema.Id)
             {
-                throw new ArgumentNullException(nameof(id));
+                return NoContent();
             }
             var pav = await _context.Scheme.FindAsync(id);
             if (pav == null)
             {
-                throw new ArgumentNullException(nameof(pav));
+                return NoContent();
             }
             if (!string.IsNullOrEmpty(schema.Img))
             {
@@ -77,31 +87,34 @@ namespace AutoKatalogas.Controllers
                 try
                 {
                     await _context.SaveChangesAsync();
+                    Ok(schema);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!SchemaExists(id))
                     {
-                        throw new ArgumentNullException(nameof(id));
+                        return NoContent();
                     }
                     else
                     {
-                        throw;
+                        return NotFound();
                     }
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Schema
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<Schema>> PostSchema(SchemaCreateReq schema)
         {
             if (schema == null)
             {
-                throw new ArgumentNullException(nameof(schema));
+                return NoContent();
             }
             if(schema.Img !=null && schema.AprasymasId !=null)
             {
@@ -112,37 +125,41 @@ namespace AutoKatalogas.Controllers
                     {
                         _context.Scheme.Add(schema.ToSchema());
                         await _context.SaveChangesAsync();
-
+                        Created(nameof(schema), schema);
                         return CreatedAtAction("GetSchema", new { id = schema.Id }, schema);
                     }
                     catch (Exception ex)
                     {
-                        throw new ArgumentNullException(ex.ToString());
+                        return NotFound();
                     }
                 }
             }
-            return NoContent();
+            return Ok();
         }
 
         // DELETE: api/Schema/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteSchema(int id)
         {
             var schema = await _context.Scheme.FindAsync(id);
             if (schema == null)
             {
-                throw new ArgumentNullException(nameof(id));
+                return NoContent();
             }
             try
             {
                 _context.Scheme.Remove(schema);
                 await _context.SaveChangesAsync();
+                Ok(schema);
             }
             catch (Exception ex)
             {
-                throw new ArgumentNullException(ex.ToString());
+                return NotFound();
             }
-            return NoContent();
+            return Ok();
         }
 
         private bool SchemaExists(int id)

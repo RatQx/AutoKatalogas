@@ -17,6 +17,8 @@ namespace AutoKatalogas.Models
 
         public int? DalisId { get; set; }
 
+        //public Dalys? dalys { get; }
+
     }
 
     public class AprasymasCreateReq

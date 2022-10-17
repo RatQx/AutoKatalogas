@@ -19,20 +19,27 @@ namespace AutoKatalogas.Controllers
 
         // GET: api/Dalys
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Dalys>>> GetParts()
         {
             try
             {
-                return await _context.Parts.ToListAsync();
+                var list = await _context.Parts.ToListAsync();
+                Ok(list);
+                return list;
             }
             catch (Exception ex)
             {
-                throw new ArgumentNullException(ex.ToString());
+                return NoContent();
             }
         }
 
         // GET: api/Dalys/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Dalys>> GetDalys(int id)
         {
 
@@ -41,28 +48,32 @@ namespace AutoKatalogas.Controllers
                 var dalys = await _context.Parts.FindAsync(id);
                 if (dalys == null)
                 {
-                    throw new ArgumentNullException(nameof(dalys));
+                    return NoContent();
                 }
+                Ok(dalys);
                 return dalys;
             }
             catch (Exception ex)
             {
-                throw new ArgumentNullException(ex.ToString());
+                return NotFound();
             }
         }
 
         // PUT: api/Dalys/5
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PutDalys(int id, Dalys dalys)
         {
             if (id != dalys.Id)
             {
-                throw new ArgumentNullException(nameof(id));
+                NoContent();
             }
             var pav = await _context.Parts.FindAsync(id);
             if (pav == null)
             {
-                throw new ArgumentNullException(nameof(pav));
+                NoContent();
             }
             if (!string.IsNullOrEmpty(dalys.Material))
             {
@@ -86,30 +97,34 @@ namespace AutoKatalogas.Controllers
                 try
                 {
                     await _context.SaveChangesAsync();
+                    Ok(dalys);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!DalysExists(id))
                     {
-                        throw new ArgumentNullException(nameof(id));
+                        return NoContent();
                     }
                     else
                     {
-                        throw;
+                        return NotFound();
                     }
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Dalys
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<Dalys>> PostDalys(DalysCreateReq dalys)
         {
             if (dalys == null)
             {
-                throw new ArgumentNullException(nameof(dalys));
+                return NoContent();
             }
             if (dalys.Name != null && dalys.Material != null && dalys.AutomobilioId != null&& dalys.Placement != null)
             {
@@ -120,37 +135,41 @@ namespace AutoKatalogas.Controllers
                     {
                         _context.Parts.Add(dalys.ToDalys());
                         await _context.SaveChangesAsync();
-
+                        Created(nameof(dalys), dalys);
                         return CreatedAtAction("GetDalys", new { id = dalys.Id }, dalys);
                     }
                     catch (Exception ex)
                     {
-                        throw new ArgumentNullException(ex.ToString());
+                        return NotFound();
                     }
                 }
             }
-            return NoContent();
+            return Ok();
         }
 
         // DELETE: api/Dalys/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteDalys(int id)
         {
             var dalys = await _context.Parts.FindAsync(id);
             if (dalys == null)
             {
-                throw new ArgumentNullException(nameof(id));
+                return NoContent();
             }
             try
             {
                 _context.Parts.Remove(dalys);
                 await _context.SaveChangesAsync();
+                Ok(dalys);
             }
             catch (Exception ex)
             {
-                throw new ArgumentNullException(ex.ToString());
+                return NotFound();
             }
-            return NoContent();
+            return Ok();
         }
 
         private bool DalysExists(int id)

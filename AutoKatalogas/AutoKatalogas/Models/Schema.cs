@@ -7,6 +7,7 @@ namespace AutoKatalogas.Models
         public string? Img { get; set; }
 
         public int? AprasymasId { get; set; }
+        //public Aprasymas? aprasymas { get; }
     }
 
     public class SchemaCreateReq
