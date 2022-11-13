@@ -1,9 +1,14 @@
-﻿using AutoKatalogas.Data;
+﻿using AutoKatalogas.Auth.Model;
+using AutoKatalogas.Data;
 using AutoKatalogas.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.JsonWebTokens;
 using System.Linq;
+using System.Security.Claims;
+using static AutoKatalogas.Models.Automobiliai;
 
 namespace AutoKatalogas.Controllers
 {
@@ -12,10 +17,12 @@ namespace AutoKatalogas.Controllers
     public class AutomobiliaisController : ControllerBase
     {
         private ApiContext _context;
+        private readonly IAuthorizationService _authorizationService;
 
-        public AutomobiliaisController(ApiContext context)
+        public AutomobiliaisController(ApiContext context, IAuthorizationService authorizationService)
         {
             _context = context;
+            _authorizationService = authorizationService;
         }
 
         // GET: api/Automobiliais
@@ -61,10 +68,11 @@ namespace AutoKatalogas.Controllers
 
         // PUT: api/Automobiliais/5
         [HttpPut("{id}")]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> PutAutomobiliai(int id, Automobiliai automobiliai)
+        public async Task<IActionResult> PutAutomobiliai(int id, AutomobiliaiCreateReq automobiliai)
         {
             if (id != automobiliai.id)
             {
@@ -92,6 +100,12 @@ namespace AutoKatalogas.Controllers
                 pav.Production_date = automobiliai.Production_date;
             }
 
+            var  authorizationResult = await _authorizationService.AuthorizeAsync(User, pav, PolicyNames.ResourceOwner);
+            if(!authorizationResult.Succeeded)
+            {
+                return Forbid();
+            }
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -114,11 +128,13 @@ namespace AutoKatalogas.Controllers
 
         // POST: api/Automobiliais
         [HttpPost]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<ActionResult<Automobiliai>> PostAutomobiliai(Automobiliai automobiliai)
+        public async Task<ActionResult<Automobiliai>> PostAutomobiliai(AutomobiliaiCreateReq automobiliai)
         {
+            var userId = User.FindFirstValue(JwtRegisteredClaimNames.Sub);
             if (automobiliai == null)
             {
                 return NoContent();
@@ -132,7 +148,9 @@ namespace AutoKatalogas.Controllers
             {
                 try
                 {
-                    _context.Autos.Add(automobiliai);
+                    var autoEntity = automobiliai.ToAutomobiliai();
+                    autoEntity.UserId = userId;
+                    _context.Autos.Add(autoEntity);
                     await _context.SaveChangesAsync();
                     Created(nameof(automobiliai), automobiliai);
 
