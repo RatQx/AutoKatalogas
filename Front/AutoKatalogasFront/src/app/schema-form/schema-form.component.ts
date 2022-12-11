@@ -3,40 +3,40 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Aprasymas } from '../models/aprasymas';
-import { Dalys } from '../models/dalys';
+import { Schema } from '../models/schema';
 import { AprasymasService } from '../services/aprasymas.service';
-import { DalysService } from '../services/dalys.service';
+import { SchemaService } from '../services/schema.service';
 
 @Component({
-  selector: 'app-aprasymas-form',
-  templateUrl: './aprasymas-form.component.html',
-  styleUrls: ['./aprasymas-form.component.scss']
+  selector: 'app-schema-form',
+  templateUrl: './schema-form.component.html',
+  styleUrls: ['./schema-form.component.scss']
 })
-export class AprasymasFormComponent implements OnInit {
+export class SchemaFormComponent implements OnInit {
 
   populateFormSubscription: Subscription;
   public addPartForm: FormGroup;
-  public aprasymai: Aprasymas;
-  public DROPDOWN_LIST: Dalys[] = [];
-  public dalysId: number[] = [];
+  public schema: Schema;
+  public DROPDOWN_LIST: Aprasymas[] = [];
+  public descId: number[] = [];
   submitButton = '';
   constructor(
     private router : Router,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private aprasymaiService: AprasymasService,
-    private dalysService: DalysService
+    private schemaService: SchemaService,
+    private aprasymasService: AprasymasService
   ) {
-    this.populateFormSubscription = this.aprasymaiService
+    this.populateFormSubscription = this.schemaService
       .sendPopulateForm()
       .subscribe((data) => {
         this.populateForm(data);
       });
-      this.dalysService.getAllDalys().subscribe({
-        next: (parts) =>{
-          this.DROPDOWN_LIST = parts;
+      this.aprasymasService.getAllAprasymai().subscribe({
+        next: (desc) =>{
+          this.DROPDOWN_LIST = desc;
           this.DROPDOWN_LIST.forEach(element => {
-            this.dalysId.push(element.id);
+            this.descId.push(element.id);
           });
         }
       }
@@ -47,9 +47,9 @@ export class AprasymasFormComponent implements OnInit {
     this.activatedRoute.params.subscribe({
       next:(param) => {
        const id = param['id']
-       this.aprasymaiService.getAprasymas(id).subscribe({
+       this.schemaService.getSchema(id).subscribe({
         next:(desq)=> {
-          this.aprasymai= desq;
+          this.schema= desq;
           this.addPartForm.patchValue(desq);
           this.submitButton = 'Update Record';
         }
@@ -63,10 +63,8 @@ export class AprasymasFormComponent implements OnInit {
     this.submitButton = 'Add Record';
     this.addPartForm = this.fb.group({
       id: [0],
-      name: ['', [Validators.required]],
-      type: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      dalisId: ['', [Validators.required]],
+      img: ['', [Validators.required]],
+      AprasymasId: ['', [Validators.required]],
     });
   }
 
@@ -76,35 +74,33 @@ export class AprasymasFormComponent implements OnInit {
 
   onSubmit() {
     if (this.addPartForm.value.id > 0) {
-      this.aprasymaiService
-        .updateAprasymas(this.addPartForm.value)
+      this.schemaService
+        .updateSchema(this.addPartForm.value)
         .subscribe((data) => {
-          this.aprasymaiService.updateList();
+          this.schemaService.updateList();
           this.emptyForm();
-          this.router.navigateByUrl('/aprasymas');
+          this.router.navigateByUrl('/schema');
         });
     } else {
       console.log(this.addPartForm.value);
-      this.aprasymaiService
+      this.schemaService
         .addRecord(this.addPartForm.value)
         .subscribe((data) => {
-          this.aprasymaiService.updateList();
+          this.schemaService.updateList();
           this.emptyForm();
-          this.router.navigateByUrl('/aprasymas');
+          this.router.navigateByUrl('/schema');
         });
     }
   }
 
   populateForm(id: number) {
     this.submitButton = 'Update Record';
-    this.aprasymaiService.getAprasymas(id).subscribe((record) => {
-      this.aprasymai = record as Aprasymas;
+    this.schemaService.getSchema(id).subscribe((record) => {
+      this.schema = record as Schema;
       this.addPartForm = this.fb.group({
-        id: this.aprasymai.id,
-        name: this.aprasymai.name,
-        type: this.aprasymai.type,
-        description: this.aprasymai.description,
-        dalisId: this.aprasymai.dalisId
+        id: this.schema.id,
+        img: this.schema.img,
+        AprasymasId: this.schema.AprasymasId
       });
     });
   }

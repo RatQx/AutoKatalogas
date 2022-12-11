@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { LoginRequest } from '../types/autokatalogas.types';
 
@@ -10,9 +11,9 @@ import { LoginRequest } from '../types/autokatalogas.types';
 })
 export class LoginComponent implements OnInit {
 
-  router: any;
 
-  constructor(private userSerive: UserService) { }
+
+  constructor(private userSerive: UserService, private router: Router) { }
   public form = new FormGroup({
     username: new FormControl('',[Validators.required]),
     password: new FormControl('',[Validators.required])
@@ -25,7 +26,9 @@ export class LoginComponent implements OnInit {
     console.log(this.form.value);
     this.userSerive.login(this.form.value as LoginRequest).subscribe({
       next: ()=>{
-        this.router.navigate(['home']);
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       }
     });
   }

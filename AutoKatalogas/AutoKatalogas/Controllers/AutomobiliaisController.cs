@@ -175,6 +175,7 @@ namespace AutoKatalogas.Controllers
 
         // DELETE: api/Automobiliais/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = ForumRoles.Admin)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

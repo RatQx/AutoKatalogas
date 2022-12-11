@@ -1,3 +1,8 @@
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
+body {
+  font-family: 'Oswald', sans-serif !important;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -53,17 +58,18 @@
   width: auto;
   max-width: 100%;
   padding: 0 15px;
+  bottom: 0;
 }
 
-.footer {
+
+footer{
   bottom: 0;
-  color: #728d7e;
-  height: 2em;
   left: 0;
+  right: 0;
   position: static;
-  font-size: small;
+
   width:100%;
-}
+  }
 
 //Navbar
 .nav-item {

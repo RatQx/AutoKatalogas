@@ -17,11 +17,11 @@
       <td>{{record.material}}</td>
       <td>{{record.placement}}</td>
       <td>{{record.automobilioId}}</td>
-      <td>
+      <td *ngIf="isAdmin==true;">
         <button class="btn btn-banger form button" (click)="onDelete(record.id)">Delete
         </button>
       </td>
-      <td>
+      <td *ngIf="isAdmin==true;">
         <button class="btn btn-banger form button"  [routerLink]="['/dalys', record.id]">Update
         </button>
       </td>
@@ -29,3 +29,4 @@
 
   </tbody>
 </table>
+<button  *ngIf="isUser==true;" type="submit" class="btn btn-outline-dark" style="margin: 10px;" (click)="addNew()">Add new</button>

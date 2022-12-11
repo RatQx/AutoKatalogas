@@ -18,11 +18,11 @@
         <td>{{record.marke}}</td>
         <td>{{record.model}}</td>
         <td>{{record.production_date | date}}</td>
-        <td>
+        <td *ngIf="isAdmin==true;">
           <button class="btn btn-banger form button" (click)="onDelete(record.id)">Delete
           </button>
         </td>
-        <td>
+        <td *ngIf="isAdmin==true;">
           <button class="btn btn-banger form button" [routerLink]="['/automobiliai', record.id]">Update
           </button>
         </td>
@@ -32,3 +32,4 @@
   </table>
 
 </ng-container>
+<button *ngIf="isUser==true;" type="submit" class="btn btn-outline-dark" style="margin: 10px;" (click)="addNew()">Add new</button>

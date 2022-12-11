@@ -15,10 +15,18 @@
       <label for="description" class="form-label">Aprasymas</label>
       <p *ngIf="registerFormControl['description'].touched && registerFormControl['description'].errors">description can't be empty</p>
     </div>
-    <div class="form-floating">
+    <!-- <div class="form-floating">
       <input type="text" id="dalisId" name="dalisId" formControlName="dalisId" class="form-control">
       <label for="dalisId" class="form-label">Dalies id</label>
       <p *ngIf="registerFormControl['dalisId'].touched && registerFormControl['dalisId'].errors">dalisId date can't be empty</p>
+    </div> -->
+    <div>
+      <label for="dalisId" class="form-label">Dalys</label>
+      <p *ngIf="registerFormControl['dalisId'].touched && registerFormControl['dalisId'].errors">dalisId can't be empty</p>
+      <select formControlName="dalisId" class="form-select" style="width: 50%;">
+        <option disabled>Choose Part</option>
+        <option *ngFor="let id of dalysId">{{id}}</option>
+      </select>
     </div>
-    <p><button class="btn btn-success add-record-button" type="submit">{{submitButton}}</button></p>
+    <p><button class="btn btn-success add-record-button" type="submit" style="margin-top: 20px;">{{submitButton}}</button></p>
     </form>

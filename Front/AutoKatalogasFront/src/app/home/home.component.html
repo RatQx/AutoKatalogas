@@ -1,3 +1,70 @@
 <body>
-    <div><img src="../assets/images/auto.png"  class="responsive"></div>
+  <div>
+    <img
+      src="../assets/images/auto2.jpg"
+      style="max-width: 100%; max-height: 30%; object-fit: cover;"
+      class="responsive"
+    />
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="openModal()">
+    Inofrmacija
+  </button>
+
+
+
+  <div
+    class="modal"
+    tabindex="-1"
+    role="dialog"
+    [ngStyle]="{ display: display }"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Autokatalogo puslapis</h4>
+          <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="onCloseHandled()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Sveiki atvykę į autokatalogo puslapį!</p>
+          <p>
+            Čia galite rasti įvarią informaciją apie automobilių dalis ir jų
+            schemas.
+          </p>
+          <p>Jei esate nauajs vartotojas visada galite užsuregistruoti.</p>
+          <p>Jei jau turite paskyrą galite prie jos prisijungti.</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            [routerLink]="['/login']"
+          >
+            Prisijungti
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            [routerLink]="['/register']"
+          >
+            Registruotis
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            (click)="onCloseHandled()"
+          >
+            Uždaryti
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>

@@ -16,6 +16,12 @@ import { AprasymasComponent } from './aprasymas/aprasymas.component';
 import { AprasymasFormComponent } from './aprasymas-form/aprasymas-form.component';
 import { AppInitializer } from './utils/app.initializer';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { SchemaComponent } from './schema/schema.component';
+import { SchemaFormComponent } from './schema-form/schema-form.component';
+import { LoadingInterceptor } from './interceptors/loading';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 function initApp(initializer: AppInitializer) {
   return () => initializer.initialize();
@@ -32,7 +38,9 @@ function initApp(initializer: AppInitializer) {
     DalysFormComponent,
     RegisterComponent,
     AprasymasComponent,
-    AprasymasFormComponent
+    AprasymasFormComponent,
+    SchemaComponent,
+    SchemaFormComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,9 @@ function initApp(initializer: AppInitializer) {
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CollapseModule,
+    BrowserAnimationsModule
   ],
   providers: [AppInitializer,
     {
@@ -49,7 +59,8 @@ function initApp(initializer: AppInitializer) {
       deps: [AppInitializer],
       multi: true,
     },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,10 +15,18 @@
     <label for="placement" class="form-label">Vieta</label>
     <p *ngIf="registerFormControl['placement'].touched && registerFormControl['placement'].errors">placement can't be empty</p>
   </div>
-  <div class="form-floating">
+  <!-- <div class="form-floating">
     <input type="text" id="automobilioId" name="automobilioId" formControlName="automobilioId" class="form-control">
     <label for="automobilioId" class="form-label">Automobilio id</label>
     <p *ngIf="registerFormControl['automobilioId'].touched && registerFormControl['automobilioId'].errors">automobilioId date can't be empty</p>
+  </div> -->
+  <div>
+    <label for="automobilioId" class="form-label">Automobiliai</label>
+    <p *ngIf="registerFormControl['automobilioId'].touched && registerFormControl['automobilioId'].errors">automobilioId can't be empty</p>
+    <select formControlName="automobilioId" class="form-select" style="width: 50%;">
+      <option disabled>Choose Auto</option>
+      <option *ngFor="let id of autosId">{{id}}</option>
+    </select>
   </div>
-  <p><button class="btn btn-success add-record-button" type="submit">{{submitButton}}</button></p>
+  <p><button class="btn btn-success add-record-button" type="submit" style="margin-top: 20px;">{{submitButton}}</button></p>
   </form>

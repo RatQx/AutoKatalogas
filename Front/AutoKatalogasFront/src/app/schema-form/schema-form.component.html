@@ -1,0 +1,23 @@
+<form [formGroup]= "addPartForm"  (ngSubmit) = "onSubmit()" novalidate>
+
+    <div class="form-floating auto-form-input">
+      <input type="text" id="img" name="img" formControlName="img" class="form-control">
+      <label for="img" class="form-label">Nuotrauka</label>
+      <p *ngIf="registerFormControl['img'].touched && registerFormControl['img'].errors">img can't be empty</p>
+    </div>
+    <!-- <div class="form-floating">
+      <input type="text" id="AprasymasId" name="AprasymasId" formControlName="AprasymasId" class="form-control">
+      <label for="AprasymasId" class="form-label">Aprasymas id</label>
+      <p *ngIf="registerFormControl['AprasymasId'].touched && registerFormControl['AprasymasId'].errors">AprasymasId date can't be empty</p>
+    </div> -->
+    <div>
+      <label for="AprasymasId" class="form-label">Dalys</label>
+      <p *ngIf="registerFormControl['AprasymasId'].touched && registerFormControl['AprasymasId'].errors">AprasymasId can't be empty</p>
+      <select formControlName="AprasymasId" class="form-select" style="width: 50%;">
+        <option disabled>Choose Description</option>
+        <option>Choose Description</option>
+        <option *ngFor="let id of descId">{{id}}</option>
+      </select>
+    </div>
+    <p><button class="btn btn-success add-record-button" type="submit" style="margin-top: 20px;">{{submitButton}}</button></p>
+    </form>

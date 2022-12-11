@@ -72,6 +72,7 @@ export class AutomobiliaiFormComponent implements OnInit {
         .subscribe((data) => {
           this.autoService.updateList();
           this.emptyForm();
+          this.router.navigateByUrl('/automobiliai');
         });
     } else {
       this.autoService
@@ -79,6 +80,7 @@ export class AutomobiliaiFormComponent implements OnInit {
         .subscribe((data) => {
           this.autoService.updateList();
           this.emptyForm();
+          this.router.navigateByUrl('/automobiliai');
         });
     }
   }

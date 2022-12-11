@@ -27,8 +27,9 @@ export class AutomobiliaiService {
   }
 
   deleteRecord(id: number){
-    return this.http.delete(this.baseApiUrl + 'api/Automobilais/' + id,);
+    return this.http.delete(this.baseApiUrl + 'api/Automobiliais/' + id,);
   }
+
 
   populateForm(id: number){
     this.populateFormSubject.next(id);

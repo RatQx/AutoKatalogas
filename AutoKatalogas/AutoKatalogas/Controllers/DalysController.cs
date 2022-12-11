@@ -1,7 +1,10 @@
-﻿using AutoKatalogas.Data;
+﻿using AutoKatalogas.Auth.Model;
+using AutoKatalogas.Data;
 using AutoKatalogas.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Linq;
 
 namespace AutoKatalogas.Controllers
@@ -61,6 +64,7 @@ namespace AutoKatalogas.Controllers
 
         // PUT: api/Dalys/5
         [HttpPut("{id}")]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -123,6 +127,7 @@ namespace AutoKatalogas.Controllers
 
         // POST: api/Dalys
         [HttpPost]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -155,6 +160,7 @@ namespace AutoKatalogas.Controllers
 
         // DELETE: api/Dalys/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = ForumRoles.Admin)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

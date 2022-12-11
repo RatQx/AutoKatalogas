@@ -8,8 +8,13 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   title = 'AutoKatalogas';
-  constructor(private userService: UserService) {}
+  public isCollapsed = true;
+  public isLoged: boolean = false;
+  constructor(private userService: UserService) {
+    this.isLoged = this.userService.isAuthenticated;
+  }
   logOut() {
     this.userService.logout();
   }
+
 }
