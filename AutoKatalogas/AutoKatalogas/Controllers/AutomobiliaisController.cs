@@ -18,7 +18,12 @@ namespace AutoKatalogas.Controllers
     {
         private ApiContext _context;
         private readonly IAuthorizationService _authorizationService;
-
+        int randomId()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(1, 10000000);
+            return x;
+        }
         public AutomobiliaisController(ApiContext context, IAuthorizationService authorizationService)
         {
             _context = context;
@@ -132,6 +137,7 @@ namespace AutoKatalogas.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Automobiliai))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status201Created)]
+
         public async Task<ActionResult<Automobiliai>> PostAutomobiliai(AutomobiliaiCreateReq automobiliai)
         {
             var userId = User.FindFirstValue(JwtRegisteredClaimNames.Sub);
@@ -139,6 +145,7 @@ namespace AutoKatalogas.Controllers
             {
                 return NoContent();
             }
+            //Console.WriteLine("tuscias");
 
             if (automobiliai.Production_date != null 
                 && automobiliai.Production_date <= DateTime.Now
@@ -150,6 +157,7 @@ namespace AutoKatalogas.Controllers
                 {
                     var autoEntity = automobiliai.ToAutomobiliai();
                     autoEntity.UserId = userId;
+                    //autoEntity.id = randomId();
                     _context.Autos.Add(autoEntity);
                     await _context.SaveChangesAsync();
                     Created(nameof(automobiliai), automobiliai);

@@ -38,7 +38,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddDbContext<ApiContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 builder.Services.AddTransient<IJwtTokenService, JwtTokenService>();

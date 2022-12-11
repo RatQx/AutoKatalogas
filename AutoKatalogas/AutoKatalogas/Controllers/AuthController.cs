@@ -9,7 +9,7 @@ namespace AutoKatalogas.Controllers
 {
     [ApiController]
     [AllowAnonymous]
-    [Route(template:"api")]
+    [Route("api")]
     public class AuthController : ControllerBase
     {
         private readonly UserManager<ForumRestUser> _userManager;

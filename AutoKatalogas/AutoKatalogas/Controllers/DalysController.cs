@@ -91,11 +91,17 @@ namespace AutoKatalogas.Controllers
             {
                 pav.AutomobilioId = dalys.AutomobilioId;
             }
+            dalys.AutomobilioId = pav.AutomobilioId;
+            dalys.Material = pav.Material;
+            dalys.Name = pav.Name;
+            dalys.Placement = pav.Placement;
+            dalys.Id = pav.Id;
             var auto_check = await _context.Autos.FindAsync(dalys.AutomobilioId);
             if(auto_check!=null)
             {
                 try
                 {
+
                     await _context.SaveChangesAsync();
                     Ok(dalys);
                 }

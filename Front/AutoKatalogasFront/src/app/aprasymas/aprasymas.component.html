@@ -1,0 +1,31 @@
+
+<table class="table caption-top">
+    <caption>Aprasymu sarasas</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pavadinimas</th>
+        <th scope="col">Tipas</th>
+        <th scope="col">Aprasymas</th>
+        <th scope="col">Dalis id</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let record of records; let i = index">
+      <tr>
+        <th scope="row">{{i+1}}</th>
+        <td>{{record.name}}</td>
+        <td>{{record.type}}</td>
+        <td>{{record.description}}</td>
+        <td>{{record.dalisId}}</td>
+        <td>
+          <button class="btn btn-banger form button" (click)="onDelete(record.id)">Delete
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-banger form button"  [routerLink]="['/dalys', record.id]">Update
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+FCOv7wOHecs86F93XVWU5/sDD9ybwPeJSQwkowNoRlx+3rmrdxMDZgN/xfGrDhtHERBc6ZbARPXQr4PVQyWYA==",
+  "dgSpecHash": "9u2NarGzZKt0S8mZJ2w4syTizUYzwk39MizxTyb423OG37V/kC945n5SyGKeIvOYQKY6RMR/UGGfqSxSZcCLkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\Lab2\\Autokatalogas\\AutoKatalogas\\AutoKatalogas\\AutoKatalogas.csproj",
+  "projectFilePath": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\SaitynoProjektasGitHub\\AutoKatalogas\\AutoKatalogas\\AutoKatalogas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tautvydas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tautvydas\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

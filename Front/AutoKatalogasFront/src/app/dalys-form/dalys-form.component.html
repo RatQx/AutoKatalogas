@@ -1,0 +1,24 @@
+<form [formGroup]= "addPartForm"  (ngSubmit) = "onSubmit()" novalidate>
+
+  <div class="form-floating auto-form-input">
+    <input type="text" id="name" name="name" formControlName="name" class="form-control">
+    <label for="name" class="form-label">Pavadinimas</label>
+    <p *ngIf="registerFormControl['name'].touched && registerFormControl['name'].errors">name can't be empty</p>
+  </div>
+  <div class="form-floating">
+    <input type="text" id="material" name="material" formControlName="material" class="form-control">
+    <label for="material" class="form-label">Medziaga</label>
+    <p *ngIf="registerFormControl['material'].touched && registerFormControl['material'].errors">material can't be empty</p>
+  </div>
+  <div class="form-floating">
+    <input type="text" id="placement" name="placement" formControlName="placement" class="form-control">
+    <label for="placement" class="form-label">Vieta</label>
+    <p *ngIf="registerFormControl['placement'].touched && registerFormControl['placement'].errors">placement can't be empty</p>
+  </div>
+  <div class="form-floating">
+    <input type="text" id="automobilioId" name="automobilioId" formControlName="automobilioId" class="form-control">
+    <label for="automobilioId" class="form-label">Automobilio id</label>
+    <p *ngIf="registerFormControl['automobilioId'].touched && registerFormControl['automobilioId'].errors">automobilioId date can't be empty</p>
+  </div>
+  <p><button class="btn btn-success add-record-button" type="submit">{{submitButton}}</button></p>
+  </form>

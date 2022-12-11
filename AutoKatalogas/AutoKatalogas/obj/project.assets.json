@@ -12247,11 +12247,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\Lab2\\Autokatalogas\\AutoKatalogas\\AutoKatalogas\\AutoKatalogas.csproj",
+      "projectUniqueName": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\SaitynoProjektasGitHub\\AutoKatalogas\\AutoKatalogas\\AutoKatalogas.csproj",
       "projectName": "AutoKatalogas",
-      "projectPath": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\Lab2\\Autokatalogas\\AutoKatalogas\\AutoKatalogas\\AutoKatalogas.csproj",
+      "projectPath": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\SaitynoProjektasGitHub\\AutoKatalogas\\AutoKatalogas\\AutoKatalogas.csproj",
       "packagesPath": "C:\\Users\\Tautvydas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\Lab2\\Autokatalogas\\AutoKatalogas\\AutoKatalogas\\obj\\",
+      "outputPath": "C:\\Users\\Tautvydas\\Desktop\\Saityno taikomųjų programų projektavimas\\SaitynoProjektasGitHub\\AutoKatalogas\\AutoKatalogas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

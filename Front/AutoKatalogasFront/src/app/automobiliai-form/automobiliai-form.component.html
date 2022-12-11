@@ -1,0 +1,24 @@
+<form [formGroup]= "addAutoForm"  (ngSubmit) = "onSubmit()" novalidate>
+
+<div class="form-floating auto-form-input">
+  <input type="text" id="vin" name="vin" formControlName="vin" class="form-control">
+  <label for="vin" class="form-label">Vin</label>
+  <p *ngIf="registerFormControl['vin'].touched && registerFormControl['vin'].errors">Vin can't be empty</p>
+</div>
+<div class="form-floating">
+  <input type="text" id="marke" name="marke" formControlName="marke" class="form-control">
+  <label for="marke" class="form-label">Marke</label>
+  <p *ngIf="registerFormControl['marke'].touched && registerFormControl['marke'].errors">marke can't be empty</p>
+</div>
+<div class="form-floating">
+  <input type="text" id="model" name="model" formControlName="model" class="form-control">
+  <label for="model" class="form-label">Model</label>
+  <p *ngIf="registerFormControl['model'].touched && registerFormControl['model'].errors">model can't be empty</p>
+</div>
+<div class="form-floating">
+  <input type="date" id="production_date" name="production_date" formControlName="production_date" class="form-control">
+  <label for="production_date" class="form-label">Gamybos data</label>
+  <p *ngIf="registerFormControl['production_date'].touched && registerFormControl['production_date'].errors">production date can't be empty</p>
+</div>
+<p><button class="btn btn-success add-record-button" type="submit">{{submitButton}}</button></p>
+</form>
