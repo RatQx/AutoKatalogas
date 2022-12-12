@@ -15,8 +15,8 @@ import { SchemaService } from '../services/schema.service';
 export class SchemaFormComponent implements OnInit {
 
   populateFormSubscription: Subscription;
-  public addPartForm: FormGroup;
-  public schema: Schema;
+  public addPartForm!: FormGroup;
+  public schema!: Schema;
   public DROPDOWN_LIST: Aprasymas[] = [];
   public descId: number[] = [];
   submitButton = '';
@@ -77,18 +77,18 @@ export class SchemaFormComponent implements OnInit {
       this.schemaService
         .updateSchema(this.addPartForm.value)
         .subscribe((data) => {
-          this.schemaService.updateList();
-          this.emptyForm();
           this.router.navigateByUrl('/schema');
+          // this.schemaService.updateList();
+          // this.emptyForm();
         });
     } else {
       console.log(this.addPartForm.value);
       this.schemaService
         .addRecord(this.addPartForm.value)
         .subscribe((data) => {
-          this.schemaService.updateList();
-          this.emptyForm();
           this.router.navigateByUrl('/schema');
+          // this.schemaService.updateList();
+          // this.emptyForm();
         });
     }
   }

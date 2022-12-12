@@ -1,5 +1,6 @@
-
-<table class="table caption-top">
+<ng-container>
+<utils-loader class="u-loader" type="ring" *ngIf="loading==true" ></utils-loader>
+<table class="table caption-top" *ngIf="loading==false">
     <caption>Aprasymu sarasas</caption>
     <thead>
       <tr>
@@ -7,7 +8,7 @@
         <th scope="col">Pavadinimas</th>
         <th scope="col">Tipas</th>
         <th scope="col">Aprasymas</th>
-        <th scope="col">Dalis id</th>
+        <th scope="col">Dalis</th>
       </tr>
     </thead>
     <tbody *ngFor="let record of records; let i = index">
@@ -29,4 +30,5 @@
 
     </tbody>
   </table>
+</ng-container>
   <button *ngIf="isUser==true;" type="submit" class="btn btn-outline-dark" style="margin: 10px;" (click)="addNew()">Add new</button>

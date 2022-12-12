@@ -14,6 +14,8 @@ export class DalysComponent implements OnInit {
   records: Dalys[] = [];
   public isAdmin: boolean = false;
   public isUser: boolean = false;
+  public loading: boolean = true;
+  public loaded: boolean = false;
   updateListSubscription: Subscription;
   constructor(
     private dalysService: DalysService,
@@ -29,8 +31,15 @@ export class DalysComponent implements OnInit {
     this.isUser = userService.isUserValid();
   }
 
-  ngOnInit(): void {
-    this.getAllDalys();
+  async ngOnInit() {
+    try {
+      await new Promise(f => setTimeout(f, 1000));
+      await this.getAllDalys();
+    } catch (err) {
+      console.log('Error', err);
+    }
+    this.loaded = true;
+    this.loading = false;
   }
 
   getAllDalys() {

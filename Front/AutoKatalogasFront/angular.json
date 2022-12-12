@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "AutoKatalogasFront"
+  "defaultProject": "AutoKatalogasFront",
+  "cli": {
+    "analytics": false
+  }
 }

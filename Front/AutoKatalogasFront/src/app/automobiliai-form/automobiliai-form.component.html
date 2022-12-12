@@ -21,4 +21,5 @@
   <p *ngIf="registerFormControl['production_date'].touched && registerFormControl['production_date'].errors">production date can't be empty</p>
 </div>
 <p><button class="btn btn-success add-record-button" type="submit">{{submitButton}}</button></p>
+<p><button type="button" class="btn btn-outline-danger" [routerLink]="['/automobiliai']">Back</button></p>
 </form>

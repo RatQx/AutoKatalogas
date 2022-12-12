@@ -23,7 +23,7 @@ export class UserService {
   public isAuthenticated: boolean = false;
   public isAdmin: boolean = false;
   public isUser: boolean = false;
-  public roles: string;
+  public roles!: string;
   public ss: string = "";
   public user: string [] = [];
   private readonly TokenValidInMinutes: number = 60;

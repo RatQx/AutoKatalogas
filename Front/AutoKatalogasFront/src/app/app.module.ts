@@ -21,6 +21,8 @@ import { SchemaFormComponent } from './schema-form/schema-form.component';
 import { LoadingInterceptor } from './interceptors/loading';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UtilsLoaderModule } from 'angular-helper-utils';
+
 
 
 function initApp(initializer: AppInitializer) {
@@ -50,7 +52,8 @@ function initApp(initializer: AppInitializer) {
     FormsModule,
     ReactiveFormsModule,
     CollapseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UtilsLoaderModule
   ],
   providers: [AppInitializer,
     {

@@ -24,9 +24,11 @@
       <label for="dalisId" class="form-label">Dalys</label>
       <p *ngIf="registerFormControl['dalisId'].touched && registerFormControl['dalisId'].errors">dalisId can't be empty</p>
       <select formControlName="dalisId" class="form-select" style="width: 50%;">
-        <option disabled>Choose Part</option>
+        <option disabled>Pasirinkite dali</option>
+        <option>Pasirinkite</option>
         <option *ngFor="let id of dalysId">{{id}}</option>
       </select>
     </div>
     <p><button class="btn btn-success add-record-button" type="submit" style="margin-top: 20px;">{{submitButton}}</button></p>
+    <p><button type="button" class="btn btn-outline-danger" [routerLink]="['/aprasymas']">Back</button></p>
     </form>

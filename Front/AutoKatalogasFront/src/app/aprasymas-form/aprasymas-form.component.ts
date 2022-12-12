@@ -15,8 +15,8 @@ import { DalysService } from '../services/dalys.service';
 export class AprasymasFormComponent implements OnInit {
 
   populateFormSubscription: Subscription;
-  public addPartForm: FormGroup;
-  public aprasymai: Aprasymas;
+  public addPartForm!: FormGroup;
+  public aprasymai!: Aprasymas;
   public DROPDOWN_LIST: Dalys[] = [];
   public dalysId: number[] = [];
   submitButton = '';

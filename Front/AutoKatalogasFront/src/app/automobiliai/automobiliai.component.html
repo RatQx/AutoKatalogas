@@ -1,6 +1,7 @@
 
-<ng-container *ngIf="loaded">
-  <table class="table caption-top">
+<ng-container>
+  <utils-loader class="u-loader" type="ring" *ngIf="loading==true" ></utils-loader>
+  <table class="table caption-top"  *ngIf="loading==false">
     <caption>Automobiliu sarasas</caption>
     <thead>
       <tr>
@@ -9,6 +10,7 @@
         <th scope="col">Marke</th>
         <th scope="col">Modelis</th>
         <th scope="col">Gamybos metai</th>
+        <th scope="col">Automobilio numeris</th>
       </tr>
     </thead>
     <tbody *ngFor="let record of records; let i = index">
@@ -18,6 +20,7 @@
         <td>{{record.marke}}</td>
         <td>{{record.model}}</td>
         <td>{{record.production_date | date}}</td>
+        <td>{{record.id}}</td>
         <td *ngIf="isAdmin==true;">
           <button class="btn btn-banger form button" (click)="onDelete(record.id)">Delete
           </button>

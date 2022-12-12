@@ -1,17 +1,26 @@
-
-<table class="table caption-top">
+<ng-container>
+  <utils-loader class="u-loader" type="ring" *ngIf="loading==true" ></utils-loader>
+<table class="table caption-top"  *ngIf="loading==false">
     <caption>Schemu sarasas</caption>
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nuotrauka</th>
-        <th scope="col">Aprasymo id</th>
+        <th scope="col">Aprasymas</th>
       </tr>
     </thead>
     <tbody *ngFor="let record of records; let i = index">
       <tr>
         <th scope="row">{{i+1}}</th>
-        <td>{{record.img}}</td>
+        <td>
+          <div class="col-6 " style="margin-top: 35px;">
+            <div class="row">
+              <div class="col-6">
+                <img [src]="record.img" alt="" style="max-height: 100%; max-width: 100%;">
+              </div>
+            </div>
+          </div>
+        </td>
         <td>{{record.AprasymasId}}</td>
 
         <td *ngIf="isAdmin==true;">
@@ -26,4 +35,5 @@
 
     </tbody>
   </table>
+</ng-container>
   <button *ngIf="isUser==true;" type="submit" class="btn btn-outline-dark" style="margin: 10px;" (click)="addNew()">Add new</button>

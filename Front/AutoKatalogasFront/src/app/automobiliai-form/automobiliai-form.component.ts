@@ -17,8 +17,8 @@ import { AutomobiliaiService } from '../services/automobiliai.service';
 })
 export class AutomobiliaiFormComponent implements OnInit {
   populateFormSubscription: Subscription;
-  public addAutoForm: FormGroup;
-  public autos: Automobiliai;
+  public addAutoForm!: FormGroup;
+  public autos!: Automobiliai;
   submitButton = '';
   constructor(
     private router : Router,

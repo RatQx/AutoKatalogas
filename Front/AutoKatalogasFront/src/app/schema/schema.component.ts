@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { elementAt, Subscription } from 'rxjs';
 import { Schema } from '../models/schema';
 import { SchemaService } from '../services/schema.service';
 import { UserService } from '../services/user.service';
@@ -13,7 +13,11 @@ import { UserService } from '../services/user.service';
 export class SchemaComponent implements OnInit {
   records: Schema[] = [];
   public isAdmin: boolean = false;
+  public loading: boolean = true;
+  public loaded: boolean = false;
   public isUser: boolean = false;
+  public list: Schema[] = [];
+  public displayedImage: string [] = [];
   updateListSubscription: Subscription;
   constructor(
     private schemaService: SchemaService,
@@ -23,17 +27,32 @@ export class SchemaComponent implements OnInit {
     this.updateListSubscription = this.schemaService
       .sendUpdateList()
       .subscribe(() => {
-        this.getAllDalys();
+        this.getAllSchemos();
       });
     this.isAdmin = userService.isUserAdmin();
     this.isUser = userService.isUserValid();
+    this.schemaService.getAllSchemos().subscribe({
+      next: (data) => {
+        this.list=data;
+        this.list.forEach(element =>{
+          this.displayedImage.push(element.img);
+        })
+      }
+    });
   }
 
-  ngOnInit(): void {
-    this.getAllDalys();
+  async ngOnInit() {
+    try {
+      await new Promise(f => setTimeout(f, 1000));
+      await this.getAllSchemos();
+    } catch (err) {
+      console.log('Error', err);
+    }
+    this.loaded = true;
+    this.loading = false;
   }
 
-  getAllDalys() {
+  getAllSchemos() {
     this.schemaService.getAllSchemos().subscribe((data) => {
       this.records = data as Schema[];
       console.log(data);
@@ -44,7 +63,7 @@ export class SchemaComponent implements OnInit {
     this.schemaService.deleteRecord(id).subscribe((data) => {
       console.log(data);
       console.log(id);
-      this.getAllDalys();
+      this.getAllSchemos();
     });
   }
 

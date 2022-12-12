@@ -23,14 +23,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.form.value);
-    this.userSerive.login(this.form.value as LoginRequest).subscribe({
-      next: ()=>{
-        this.router.navigate(['/home']).then(() => {
-          window.location.reload();
-        });
-      }
-    });
+    //console.log(this.form.value);
+    try{
+      this.userSerive.login(this.form.value as LoginRequest).subscribe({
+        next: (data)=>{
+          console.log(data)
+          this.router.navigate(['/home']).then(() => {
+            window.location.reload();
+          });
+        }
+      });
+    }
+    catch{
+
+    }
   }
 
 }

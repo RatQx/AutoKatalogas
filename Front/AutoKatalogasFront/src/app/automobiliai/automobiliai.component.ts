@@ -11,10 +11,10 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./automobiliai.component.scss'],
 })
 export class AutomobiliaiComponent implements OnInit {
-  loading = true;
-  loaded = false;
-  public isAdmin: boolean = false;
+  public loading: boolean = true;
+  public loaded: boolean = false;
   public isUser: boolean = false;
+  public isAdmin: boolean = false;
   records: Automobiliai[] = [];
   updateListSubscription: Subscription;
   deleteId = 0;
@@ -34,6 +34,7 @@ export class AutomobiliaiComponent implements OnInit {
 
   async ngOnInit() {
     try {
+      await new Promise(f => setTimeout(f, 1000));
       await this.getAllAutos();
     } catch (err) {
       console.log('Error', err);

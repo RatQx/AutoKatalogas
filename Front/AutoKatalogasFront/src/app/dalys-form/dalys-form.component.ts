@@ -19,8 +19,8 @@ import { DalysService } from '../services/dalys.service';
 })
 export class DalysFormComponent implements OnInit {
   populateFormSubscription: Subscription;
-  public addPartForm: FormGroup;
-  public dalys: Dalys;
+  public addPartForm!: FormGroup;
+  public dalys!: Dalys;
   public DROPDOWN_LIST: Automobiliai[] = [];
   public autosId: number[] = [];
   submitButton = '';
