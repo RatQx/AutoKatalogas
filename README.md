@@ -61,103 +61,124 @@ Sistemos funnkcinai reikalavimai:
 
 Neprisijungusio vartotojo pagrindinis projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224712-6a5dd5a5-f09c-44da-8b79-43b34092fe70.png)
 
 *pav. 2. Svečio pagrindinis wireframe.*
 
 Neprisijungusio vartotojo pagrindinis realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224733-86919288-2f92-4274-b885-98c8378b3c4e.png)
 
 *pav. 3. Svečio pagrindinis langas.*
 
 Prisijungusio vartotojo pagrindinis projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224762-20699ba5-1779-4448-add5-0c993212d3b4.png)
 
 *pav. 4. Vartotjo pagrindinis wireframe.*
 
 Prisijungusio vartotojo pagrindinis realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224786-2d6bc786-1361-43d9-a171-36fad75ffab7.png)
 
 *pav. 5. Vartotojo pagrindinis langas.*
 
 Registracijos projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224796-7a3ef921-3d40-4645-a5c4-0d39c5f74a80.png)
 
 *pav. 6. Registracijos wireframe.*
 
 Registracijos realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224811-8b5dc459-5d2f-4b31-ad61-a4770d1e3ad7.png)
 
 *pav. 7. Registracijos langas.*
 
 Prisijungimo projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224820-2170121a-790a-4f19-ba60-404ae48b35ab.png)
 
 *pav. 8. Prisijungimo wireframe langas.*
 
 Prisijungimo realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224827-33c07f97-804b-4aa7-b92a-dfc9eb685aa9.png)
 
 *pav. 9. Prisijungimo langas.*
 
 Administratoriaus matomas objektų projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224845-101c61c7-f5f2-44a7-b2be-e2a4d2cb4e9b.png)
 
 *pav. 10. Administratoriaus objektų wireframe langas.*
 
 Administratoriaus matomas objektų realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224863-65d5c948-3468-4245-ae56-749a4739ca0f.png)
 
 *pav. 11. Administratoriaus matomas objektų realizacijos langas.*
 
 Vartotojo matomas elementų projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224883-6f9c8ee0-36e7-4f15-9daf-d8180a3c7e00.png)
 
 *pav. 12. Vartotojo matomas elementų wireframe langas.*
 
 Vartotojo  matomas objektų realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209224900-915dd9d0-84d3-4c6e-9a51-4414e7222a20.png)
 
 *pav. 13. Vartotojo matomas objektų realizacijos langas.*
 
 Svečio matomas elementų projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225375-b8333adb-14d6-418d-b4f5-233f128cec31.png)
 
+*pav. 14. Vartotojo matomas objektų wireframe langas.*
 
 Svečio  matomas objektų realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225390-470f298a-5aff-4b0b-81c7-e23cc4657b23.png)
 
-*pav. 14. Svečio matomas objektų realizacijos langas.*
+*pav. 15. Svečio matomas objektų realizacijos langas.*
 
 Administratoriaus ir vartotojo matomas objektų sukūrimo projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225404-80926fad-76d1-40b5-9373-b98fcc35f768.png)
 
-*pav. 15. Administratoriaus ir vartotojo matomas objektų pridėjimo wireframe langas.*
+*pav. 16. Administratoriaus ir vartotojo matomas objektų pridėjimo wireframe langas.*
 
 Administratoriaus ir vartotojo matomas objektų sukūrimo realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225415-88d53f02-29ed-4046-9cba-18de57670414.png)
 
-*pav. 16. Administratoriaus ir vartotojo matomas objektų pridėjimo realizacijos langas.*
+*pav. 17. Administratoriaus ir vartotojo matomas objektų pridėjimo realizacijos langas.*
 
 Administratoriaus matomas objektų atnaujinimo projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225430-497a5ded-2f80-48f9-99e8-41fce32bcf23.png)
 
-*pav. 17. Administratoriaus  matomas objektų atnaujinimo wireframe langas.*
+*pav. 18. Administratoriaus  matomas objektų atnaujinimo wireframe langas.*
 
 Administratoriaus matomas objektų atnaujinimo realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225444-f78254c6-dc3b-45a8-905d-403660234839.png)
 
-*pav. 18. Administratoriaus  matomas objektų atnaujinimo realizacijos langas.*
+*pav. 19. Administratoriaus  matomas objektų atnaujinimo realizacijos langas.*
 
 Visų vartotojų matomas schemų projektuojamos sąsajos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225455-6f591d46-ec57-4eb8-8e07-abadee18350a.png)
 
-*pav. 19. VIsų vartotojų matomas schemų wireframe langas.*
+*pav. 20. VIsų vartotojų matomas schemų wireframe langas.*
 
 
 Visų vartotojų matomas schemų realizacijos langas:
 
+![image](https://user-images.githubusercontent.com/79149026/209225475-c10b0549-25a6-4557-b857-9d9fdc509633.png)
 
-*pav. 20. Visų vartotojų matomas schemų realizacijos langas.*
+*pav. 21. Visų vartotojų matomas schemų realizacijos langas.*
 
 1. **API specifikacija**
 
