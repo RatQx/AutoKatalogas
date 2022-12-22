@@ -55,6 +55,7 @@ Sistemos funnkcinai reikalavimai:
 1. **Sistemos architektūra**
 
 
+![image](https://user-images.githubusercontent.com/79149026/209225952-4e581f9d-f1f4-4ed3-809d-1ea70cad2a81.png)
 
 *pav. 1. Sistemos architektūra.*
 
