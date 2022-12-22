@@ -16,17 +16,17 @@ Ataskaita
 **Turinys**
 
 
-1.	Sistemos paskirtis	(#_Toc122632576)
+1.	Sistemos paskirtis	
 
-2.	Funkciniai reikalavimai (#_Toc122632577)
+2.	Funkciniai reikalavimai 
 
-3.	Sistemos architektūra	5(#_Toc122632578)
+3.	Sistemos architektūra
 
-4.	Naudotojo sąsajos projektas	5(#_Toc122632579)
+4.	Naudotojo sąsajos projektas
 
-5.	API specifikacija	15(#_Toc122632580)
+5.	API specifikacija
 
-6.	Išvados	20(#_Toc122632581)
+6.	Išvados
 
 
 
